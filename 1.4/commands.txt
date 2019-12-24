@@ -1,0 +1,4 @@
+docker pull devopsdockeruh/exec_bash_exercise
+docker run -d --name exercise devopsdockeruh/exec_bash_exercise
+docker exec -it exercise bash
+
