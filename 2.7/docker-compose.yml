@@ -1,0 +1,21 @@
+version: '3'
+services:
+    frontend:
+        image: km-frontend
+        ports:
+         - 3000:3000
+    backend:
+        image: km-backend
+        ports:
+         - 5000:5000
+        volumes:
+         - model:/src/model
+    training:
+        image: km-training
+        volumes:
+         - model:/src/model
+         - imgs:/src/imgs
+
+volumes:
+    model:
+    imgs:
