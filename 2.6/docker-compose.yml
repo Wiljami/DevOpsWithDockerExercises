@@ -1,0 +1,22 @@
+version: '3'
+
+services: 
+    postgres:
+        image: postgres:alpine
+        environment:
+         - POSTGRES_PASSWORD=example
+    redis:
+        image: redis:alpine
+    back: 
+        image: 'backend'
+        ports:
+         - 8000:8000
+        environment:
+         - REDIS=redis
+         - DB_HOST=postgres
+         - DB_USERNAME=postgres
+         - DB_PASSWORD=example
+    front: 
+        image: 'frontend'
+        ports:
+         - 5000:5000
